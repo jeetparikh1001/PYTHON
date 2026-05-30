@@ -1,0 +1,50 @@
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.")
+step1 = input("you are at crossroad be careful,you miss you are dead? type left,right,up,down?")
+if step1 == "up":
+    print("Go to heaven!Game over.")
+elif step1 == "down":
+    print("Go to hell!Game over.")
+elif step1 == "right":
+    print("you are safe!Move forward")
+    choice1 = input("you are in school do you want to study or play?type p for play and S for study.")
+    if choice1 == "s":
+        print("you are dumb idiot! you are out")
+    if choice1 == "p":
+        print("you are safe!Move forward")
+    # else:
+         # print("enter anything valid thing!")
+    choice3 = input("Well done!you played a lot, you seems to be tired in which room do you want to rest?"
+                     " room1 ,room2 ,room3 ")
+    if choice3 == "room1" or "room3":
+        print("you will burn into the furnances!")
+    if choice3 == "room2":
+        print("well played!you are only one step ahead of winning")
+    # else:
+    #     print("enter anything valid thing!")
+    lastchoice = input("tea or coffee?")
+    if lastchoice == "tea":
+        print("you found the treasure!")
+    if lastchoice == "coffee":
+        print("well played!Better luck next time.")
+    # else:
+    #     print("enter anything valid thing")
+elif step1 == "left":
+    print("you are safe!Move forward")
+    choice2 = input("you are on island, you have only two options. swim or wait for boat.swim for swim or w for wait?")
+    if choice2 == "w":
+        print("you gonna died by waiting on the island! you are out ")
+    if choice2 == "swim":
+        print("you seems to be intelligent.you survived!Move forward")
+    # else:
+    #     print("enter anything valid thing!")
+    choice4 = input("you swim very far so you need so much of energy right? so what do want coca-cola or pepsi or "
+                    "sugarcane juice? type c or p or s")
+    if choice4 == "p" or "s":
+        print("you played well!But you are become fool.")
+    if choice4 == "c":
+        print("you found the treasure!")
+    # else:
+    #     print("enter anything valid thing!")
+else:
+    print("enter anything valid thing!")
