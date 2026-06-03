@@ -1,0 +1,152 @@
+from typing import List, Dict
+from enum import Enum
+
+
+class Position:
+    image: str
+    x: int
+    y: int
+
+    def __init__(self, image: str, x: int, y: int) -> None:
+        self.image = image
+        self.x = x
+        self.y = y
+
+
+class Goal:
+    possible_final_positions: List[List[int]]
+    position: Position
+
+    def __init__(self, possible_final_positions: List[List[int]], position: Position) -> None:
+        self.possible_final_positions = possible_final_positions
+        self.position = position
+
+
+class Objects:
+    pass
+
+    def __init__(self, ) -> None:
+        pass
+
+
+class TraceHistory:
+    color: str
+    thickness: int
+    prev_x: int
+    x: int
+    prev_y: int
+    y: int
+    grid_x: int
+    grid_y: int
+
+    def __init__(self, color: str, thickness: int, prev_x: int, x: int, prev_y: int, y: int, grid_x: int, grid_y: int) -> None:
+        self.color = color
+        self.thickness = thickness
+        self.prev_x = prev_x
+        self.x = x
+        self.prev_y = prev_y
+        self.y = y
+        self.grid_x = grid_x
+        self.grid_y = grid_y
+
+
+class Robot:
+    x: int
+    y: int
+    objects: Objects
+    model: str
+    orientation: int
+    is_leaky: bool
+    prev_x: int
+    prev_y: int
+    prev_orientation: int
+    trace_history: List[TraceHistory]
+    trace_style: str
+    trace_color: str
+    id: int
+    initial_position: List[int]
+
+    def __init__(self, x: int, y: int, objects: Objects, model: str, orientation: int, is_leaky: bool, prev_x: int, prev_y: int, prev_orientation: int, trace_history: List[TraceHistory], trace_style: str, trace_color: str, id: int, initial_position: List[int]) -> None:
+        self.x = x
+        self.y = y
+        self.objects = objects
+        self.model = model
+        self.orientation = orientation
+        self.is_leaky = is_leaky
+        self.prev_x = prev_x
+        self.prev_y = prev_y
+        self.prev_orientation = prev_orientation
+        self.trace_history = trace_history
+        self.trace_style = trace_style
+        self.trace_color = trace_color
+        self.id = id
+        self.initial_position = initial_position
+
+
+class Tile(Enum):
+    GRASS = "grass"
+    MUD = "mud"
+    THE_000000 = "#000000"
+
+
+class Wall(Enum):
+    EAST = "east"
+    NORTH = "north"
+
+
+class Welcome8:
+    walls: Dict[str, List[Wall]]
+    small_tiles: bool
+    rows: int
+    cols: int
+    tiles: Dict[str, List[Tile]]
+    goal: Goal
+    robots: List[Robot]
+    description: List[str]
+
+    def __init__(self, walls: Dict[str, List[Wall]], small_tiles: bool, rows: int, cols: int, tiles: Dict[str, List[Tile]], goal: Goal, robots: List[Robot], description: List[str]) -> None:
+        self.walls = walls
+        self.small_tiles = small_tiles
+        self.rows = rows
+        self.cols = cols
+        self.tiles = tiles
+        self.goal = goal
+        self.robots = robots
+        self.description = description
+
+
+
+
+
+def at_goal():
+    ''
+def front_is_clear():
+    ''
+def right_is_clear():
+    ''
+def wall_on_right():
+    ''
+    
+    
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+    
+   
+def jump():
+    if right_is_clear():
+        turn_right()
+        move() 
+    while wall_on_right():
+      if front_is_clear():
+        move()
+      else:
+        turn_left()
+      
+while not at_goal():
+    if front_is_clear():
+        move()
+    else:
+        jump()
+
